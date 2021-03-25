@@ -119,7 +119,9 @@ const cadastrocliente = (nome, tipo, idade, raca, peso, tutor, contato, vacinado
     console.log(pets);
 }
 
-cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
+//cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
+
+//               DESAFIO 4
 
 
 
