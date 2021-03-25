@@ -91,7 +91,8 @@ const campanhaVacina = () =>{
         }
     
    }
-   console.log(`Dentre todos os ${pets.length} pets, ${cont} foram vacinados!!!`);
+   let PetsVacinados = pets.length - cont;
+   console.log(`Dentre todos os ${pets.length} pets/pet, ${cont} foram/foi vacinado/s e ${PetsVacinados} ja eram/era vacinados!!!`);
 
 }
 campanhaVacina();
