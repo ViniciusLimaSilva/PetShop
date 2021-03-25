@@ -58,6 +58,7 @@ listarpets();
 
 */
 
+//                     DESAFIO 1
 const VerificaVacinaPet = (animal) => {
    
     for(let pet of pets){
@@ -81,6 +82,8 @@ const VerificaVacinaPet = (animal) => {
 };
 //VerificaVacinaPet('bolota');
 
+
+//               DESAFIO 2
 const campanhaVacina = () =>{
     let cont = 0;
     for(let pet of pets){
