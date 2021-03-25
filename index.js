@@ -98,5 +98,30 @@ const campanhaVacina = () =>{
    console.log(`Dentre todos os ${pets.length} pets/pet, ${cont} foram/foi vacinado/s e ${PetsVacinados} ja eram/era vacinados!!!`);
 
 }
-campanhaVacina();
+//campanhaVacina();
+
+//               DESAFIO 3
+
+const cadastrocliente = (nome, tipo, idade, raca, peso, tutor, contato, vacinado, servicos) =>{
+    
+    pets.push({
+    nome: nome,
+    tipo: tipo,
+    idade: idade,
+    raca: raca,
+    peso: peso,
+    tutor: tutor,
+    contato: contato,
+    vacinado: vacinado,
+    servicos: servicos
+    });
+
+    console.log(pets);
+}
+
+cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
+
+
+
+
 
