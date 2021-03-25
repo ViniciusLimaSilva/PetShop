@@ -1,5 +1,7 @@
 const NomePet = "PetShop Do Lar";
 
+const moment = require('moment'); // require
+
 let pets  = [ {
     nome: 'Joey',
     tipo: 'coelho',
@@ -122,6 +124,48 @@ const cadastrocliente = (nome, tipo, idade, raca, peso, tutor, contato, vacinado
 //cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
 
 //               DESAFIO 4
+
+const darBanhoPet = (Petty) => {
+
+    for(let pet of pets){
+        if(Petty == pet.nome){
+            pet.servicos.push(`Banho, Serviço feito na data: ${moment().locale('pt').format('dddd, hA')}`);
+            console.log(`Pet ${pet.nome} está de banho tomado`);
+                      
+        }     
+    }
+    
+
+}
+const TosarPet = (Petty) => {
+
+    for(let pet of pets){
+        if(Petty == pet.nome){
+            pet.servicos.push(`tosa, Serviço feito na data: ${moment().locale('pt').format('dddd, hA')}`);
+            console.log(`Pet ${pet.nome} está com cabelinho na régua`);
+                      
+        }     
+    }
+    
+
+}
+const ApararUnhasPet = (Petty) => {
+    
+    for(let pet of pets){
+        if(Petty == pet.nome){
+            pet.servicos.push(`Corte de unhas, Serviço feito na data: ${moment().locale('pt').format('dddd, hA')}`);      
+            console.log(`Pet ${pet.nome} está de unhas aparadas!`);
+                      
+        }     
+    }
+    
+
+}
+darBanhoPet('bolota');
+TosarPet('bolota');
+ApararUnhasPet('bolota');
+console.log(pets)
+
 
 
 
