@@ -60,6 +60,14 @@ listarpets();
 
 */
 
+const listarPets = () => {
+    for(let pet of pets){        
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
+    }
+}
+
+
+
 //                     DESAFIO 1
 const VerificaVacinaPet = (animal) => {
    
@@ -129,19 +137,19 @@ const darBanhoPet = (Petty) => {
 
     for(let pet of pets){
         if(Petty == pet.nome){
-            pet.servicos.push(`Banho, Serviço feito na data: ${moment().locale('pt').format('dddd, hA')}`);
+            pet.servicos.push(`Banho, Serviço feito na data: ${moment().format('DD-MM-YYYY')}`);
             console.log(`Pet ${pet.nome} está de banho tomado`);
                       
         }     
     }
-    
+
 
 }
 const TosarPet = (Petty) => {
 
     for(let pet of pets){
         if(Petty == pet.nome){
-            pet.servicos.push(`tosa, Serviço feito na data: ${moment().locale('pt').format('dddd, hA')}`);
+            pet.servicos.push(`tosa, Serviço feito na data: ${moment().format('DD-MM-YYYY')}`);
             console.log(`Pet ${pet.nome} está com cabelinho na régua`);
                       
         }     
@@ -153,7 +161,7 @@ const ApararUnhasPet = (Petty) => {
     
     for(let pet of pets){
         if(Petty == pet.nome){
-            pet.servicos.push(`Corte de unhas, Serviço feito na data: ${moment().locale('pt').format('dddd, hA')}`);      
+            pet.servicos.push(`Corte de unhas, Serviço feito na data: ${moment().format('DD-MM-YYYY')}`);      
             console.log(`Pet ${pet.nome} está de unhas aparadas!`);
                       
         }     
