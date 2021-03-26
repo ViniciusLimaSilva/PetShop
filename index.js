@@ -1,7 +1,9 @@
 const NomePet = "PetShop Do Lar";
 
 const moment = require('moment'); // require
+let dadospet = require('./dadospets.json')
 
+/*
 let pets  = [ {
     nome: 'Joey',
     tipo: 'coelho',
@@ -39,6 +41,8 @@ let pets  = [ {
 
 }
 ];
+*/
+
 
 /*
 const listarpets = () => {
@@ -59,6 +63,8 @@ const listarpets = () => {
 listarpets();
 
 */
+
+/*
 
 const listarPets = () => {
     for(let pet of pets){        
@@ -92,7 +98,10 @@ const VerificaVacinaPet = (animal) => {
 };
 //VerificaVacinaPet('bolota');
 
+*/
 
+
+/*
 //               DESAFIO 2
 const campanhaVacina = () =>{
     let cont = 0;
@@ -109,6 +118,10 @@ const campanhaVacina = () =>{
 
 }
 //campanhaVacina();
+
+*/
+
+/*
 
 //               DESAFIO 3
 
@@ -130,6 +143,10 @@ const cadastrocliente = (nome, tipo, idade, raca, peso, tutor, contato, vacinado
 }
 
 //cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
+
+*/
+
+/*
 
 //               DESAFIO 4
 
@@ -172,7 +189,10 @@ const ApararUnhasPet = (Petty) => {
 darBanhoPet('bolota');
 TosarPet('bolota');
 ApararUnhasPet('bolota');
-console.log(pets)
+
+*/
+
+console.log(dadospet)
 
 
 
