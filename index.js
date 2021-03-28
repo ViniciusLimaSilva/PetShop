@@ -154,7 +154,7 @@ const darBanhoPet = (pet) => {
     data: moment().format('DD-MM-YYYY'),
   });
 
-  fs.writeFile('./dadospets.json', JSON.stringify(pets), (err) => {
+  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
     if (err) {
       throw err;
     }
@@ -168,7 +168,7 @@ const TosarPet = (pet) => {
     data: moment().format('DD-MM-YYYY'),
   });
 
-  fs.writeFile('./dadospets.json', JSON.stringify(pets), (err) => {
+  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
     if (err) {
       throw err;
     }
@@ -182,7 +182,7 @@ const ApararUnhasPet = (pet) => {
     data: moment().format('DD-MM-YYYY'),
   });
 
-  fs.writeFile('./dadospets.json', JSON.stringify(pets), (err) => {
+  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
     if (err) {
       throw err;
     }
@@ -191,7 +191,7 @@ const ApararUnhasPet = (pet) => {
   console.log(`Pet ${pet.nome} está de unhas aparadas!`);
 };
 
-atenderCliente(pets[0], ApararUnhasPet(pets[0]));
+atenderCliente(dadospet[1], ApararUnhasPet(dadospet[1]));
 //TosarPet(pets[0]);
 //console.log('---------------------')
 //darBanhoPet(pets[0]);

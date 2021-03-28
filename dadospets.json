@@ -19,7 +19,11 @@
     "tutor": "conceição",
     "contato": "(81)98624-8759",
     "vacinado": true,
-    "servicos": []
+    "servicos": [
+      { "nome": "banho", "data": "28-03-2021" },
+      { "nome": "tosa", "data": "28-03-2021" },
+      { "nome": "corte de unhas", "data": "28-03-2021" }
+    ]
   },
   {
     "nome": "joeyJr",
@@ -30,6 +34,6 @@
     "tutor": "Pierre",
     "contato": "(81)99999-9999",
     "vacinado": false,
-    "servicos": []
+    "servicos": [{ "nome": "corte de unhas", "data": "28-03-2021" }]
   }
 ]
