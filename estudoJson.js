@@ -1,7 +1,6 @@
-// let arquivoJson = require("./package.json") chamando o arquivo json
+// let arquivoJson = require("./package.json") chamando o arquivo
 
-
-
+/*
 let petObj = {
     nome: 'pulga',
     idade: 4,
@@ -17,3 +16,34 @@ console.log(JSON.parse(petStringJson))// transformando uma string JSON em um obj
 
 // ESTUDAR stringify() (transforma em uma string JSON)
 // ESTUDAR JSON.parse() (transforma em um objeto JSON)
+
+*/
+let dadospet = require('./dadospets.json')
+
+let pets = dadospet.pets
+
+
+
+const atenderCliente = (pet, servico) => {
+    console.log(`Olá, ${pet.nome}`);
+
+    (servico)? servico() : console.log('so vim dar uma olhadinha'); // if ternario para avançar se n tiver 2 parametro
+    //servico(); jeito sem if
+    console.log('Tchau, até mais!');
+}
+
+const darBanhoPet = () => {
+    console.log('dando banho no pet...');
+}
+
+const apararUnhas = () => {
+    console.log('Aparando Unhas....');
+}
+
+atenderCliente(pets[0], darBanhoPet);
+console.log('--------------------------')
+atenderCliente(pets[2], apararUnhas);
+console.log('--------------------------')
+atenderCliente(pets[1]);
+
+

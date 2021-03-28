@@ -11,5 +11,9 @@
   "devDependencies": {
     "install": "^0.13.0",
     "moment": "^2.29.1"
+  },
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security"
   }
 }
