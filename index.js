@@ -3,15 +3,23 @@ const NomePet = 'PetShop Do Lar';
 const moment = require('moment'); // require
 const fs = require('fs');
 
-let dadospet = require('./dadospets.json');
-const { version } = require('moment');
+let dadospet = fs.readFileSync('./dadospets.json'); // puxando outro arquivo, lendo ele e jogando para a variavel dadospet
 
-let pets = dadospet.pets;
+dadospet = JSON.parse(dadospet); // transformando o arquivo em json
+
+const attbancopets = () => {
+  // att banco no arquivo json e add
+  let petsatt = JSON.stringify(dadospet);
+  fs.writeFileSync('dadospets.json', petsatt, 'utf-8'); // escreve o que foi editado no arquivo json
+};
+
+const { version } = require('moment');
+const { verify } = require('crypto');
 
 /*
 const listarpets = () => {
 
-    for(let pet of dadospet){
+    for(let pet of dadospet.pets){
         console.log(`O nome do pet é:  ${pet.nome}`);
     }
     
@@ -27,7 +35,7 @@ const listarpets = () => {
 */
 
 const listarPets = () => {
-  for (let pet of dadospet) {
+  for (let pet of dadospet.pets) {
     console.log(
       `${pet.nome} \n ${pet.idade} anos \n ${pet.tipo} \n ${pet.raca}`
     );
@@ -43,7 +51,7 @@ const listarPets = () => {
 
 //                     DESAFIO 1
 const VerificaVacinaPet = (animal) => {
-  for (let pet of dadospet) {
+  for (let pet of dadospet.pets) {
     if (animal == pet.nome) {
       if (pet.vacinado == false) {
         pet.vacinado = true;
@@ -59,15 +67,15 @@ const VerificaVacinaPet = (animal) => {
 //               DESAFIO 2
 const campanhaVacina = () => {
   let cont = 0;
-  for (let pet of dadospet) {
+  for (let pet of dadospet.pets) {
     if (pet.vacinado == false) {
       pet.vacinado = true;
       cont = cont + 1;
     }
   }
-  let PetsVacinados = dadospet.length - cont;
+  let PetsVacinados = dadospet.pets.length - cont;
   console.log(
-    `Dentre todos os ${dadospet.length} pets/pet, ${cont} foram/foi vacinado/s e ${PetsVacinados} ja eram/era vacinados!!!`
+    `Dentre todos os ${dadospet.pets.length} pets/pet, ${cont} foram/foi vacinado/s e ${PetsVacinados} ja eram/era vacinados!!!`
   );
 };
 //campanhaVacina();
@@ -85,28 +93,26 @@ const cadastrocliente = (
   vacinado,
   servicos
 ) => {
-  dadospet.push({
-    nome: nome,
-    tipo: tipo,
-    idade: idade,
-    raca: raca,
-    peso: peso,
-    tutor: tutor,
-    contato: contato,
-    vacinado: vacinado,
-    servicos: servicos,
-  });
+  newPet = {
+    nome,
+    tipo,
+    idade,
+    raca,
+    peso,
+    tutor,
+    contato,
+    vacinado,
+    servicos,
+  };
 
-  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  dadospet.pets.push(newPet);
+
+  attbancopets();
 
   console.log('pet adicionado');
 };
 
-//cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
+//cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, [])
 
 //                DESAFIO 4
 
@@ -123,11 +129,7 @@ const darBanhoPet = (pet) => {
     data: moment().format('DD-MM-YYYY'),
   });
 
-  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  attbancopets();
   console.log(`Pet ${pet.nome} está de banho tomado`);
 };
 
@@ -137,11 +139,7 @@ const TosarPet = (pet) => {
     data: moment().format('DD-MM-YYYY'),
   });
 
-  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  attbancopets();
   console.log(`Pet ${pet.nome} está com cabelinho na régua`);
 };
 
@@ -151,16 +149,14 @@ const ApararUnhasPet = (pet) => {
     data: moment().format('DD-MM-YYYY'),
   });
 
-  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  attbancopets();
 
   console.log(`Pet ${pet.nome} está de unhas aparadas!`);
 };
 
-atenderCliente(dadospet[3], ApararUnhasPet(dadospet[3]));
+const DeletaPet = (pet) => {};
+
+atenderCliente(dadospet.pets[2], ApararUnhasPet(dadospet.pets[2]));
 //TosarPet(pets[0]);
 //console.log('---------------------')
 //darBanhoPet(pets[0]);
