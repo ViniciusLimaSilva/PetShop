@@ -4,53 +4,14 @@ const moment = require('moment'); // require
 const fs = require('fs');
 
 let dadospet = require('./dadospets.json');
+const { version } = require('moment');
 
 let pets = dadospet.pets;
 
 /*
-let pets  = [ {
-    nome: 'Joey',
-    tipo: 'coelho',
-    idade: 3,
-    raca: 'chinchila',
-    peso: 5,
-    tutor: 'vinicius',
-    contato: '(81)98529-1481',
-    vacinado: false,
-    servicos: ['banho', 'tosa']
-
-},
-{
-    nome: 'bolota',
-    tipo: 'coelho',
-    idade: 1,
-    raca: 'mesclado',
-    peso: 2,
-    tutor: 'conceição',
-    contato: '(81)98624-8759',
-    vacinado: true,
-    servicos: ['tosa']
-
-},
-{
-    nome: 'joeyJr',
-    tipo: 'coelho',
-    idade: 1,
-    raca: 'Raraça Pura',
-    peso: 2,
-    tutor: 'Pierre',
-    contato: '(81)99999-9999',
-    vacinado: false,
-    servicos: ['vacina', 'castração']
-
-}
-];
-*/
-
-/*
 const listarpets = () => {
 
-    for(let pet of pets){
+    for(let pet of dadospet){
         console.log(`O nome do pet é:  ${pet.nome}`);
     }
     
@@ -66,21 +27,23 @@ const listarpets = () => {
 */
 
 const listarPets = () => {
-  for (let pet of pets) {
-    console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
+  for (let pet of dadospet) {
+    console.log(
+      `${pet.nome} \n ${pet.idade} anos \n ${pet.tipo} \n ${pet.raca}`
+    );
 
     for (const servico of pet.servicos) {
       console.log(`${servico.data} -- ${servico.nome}`);
     }
 
     let vacinado = pet.vacinado == true ? 'Vacinado' : 'Não vacinado'; //if ternario para verificar se o pet é vacinado
-    console.log(vacinado);
+    console.log(vacinado + '\n');
   }
 };
 
 //                     DESAFIO 1
 const VerificaVacinaPet = (animal) => {
-  for (let pet of pets) {
+  for (let pet of dadospet) {
     if (animal == pet.nome) {
       if (pet.vacinado == false) {
         pet.vacinado = true;
@@ -96,15 +59,15 @@ const VerificaVacinaPet = (animal) => {
 //               DESAFIO 2
 const campanhaVacina = () => {
   let cont = 0;
-  for (let pet of pets) {
+  for (let pet of dadospet) {
     if (pet.vacinado == false) {
       pet.vacinado = true;
       cont = cont + 1;
     }
   }
-  let PetsVacinados = pets.length - cont;
+  let PetsVacinados = dadospet.length - cont;
   console.log(
-    `Dentre todos os ${pets.length} pets/pet, ${cont} foram/foi vacinado/s e ${PetsVacinados} ja eram/era vacinados!!!`
+    `Dentre todos os ${dadospet.length} pets/pet, ${cont} foram/foi vacinado/s e ${PetsVacinados} ja eram/era vacinados!!!`
   );
 };
 //campanhaVacina();
@@ -122,7 +85,7 @@ const cadastrocliente = (
   vacinado,
   servicos
 ) => {
-  pets.push({
+  dadospet.push({
     nome: nome,
     tipo: tipo,
     idade: idade,
@@ -134,7 +97,13 @@ const cadastrocliente = (
     servicos: servicos,
   });
 
-  console.log(pets);
+  fs.writeFile('./dadospets.json', JSON.stringify(dadospet), (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+
+  console.log('pet adicionado');
 };
 
 //cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, ['tosa', 'banho'])
@@ -191,7 +160,7 @@ const ApararUnhasPet = (pet) => {
   console.log(`Pet ${pet.nome} está de unhas aparadas!`);
 };
 
-atenderCliente(dadospet[1], ApararUnhasPet(dadospet[1]));
+atenderCliente(dadospet[3], ApararUnhasPet(dadospet[3]));
 //TosarPet(pets[0]);
 //console.log('---------------------')
 //darBanhoPet(pets[0]);
