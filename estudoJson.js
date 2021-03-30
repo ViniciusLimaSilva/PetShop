@@ -18,32 +18,46 @@ console.log(JSON.parse(petStringJson))// transformando uma string JSON em um obj
 // ESTUDAR JSON.parse() (transforma em um objeto JSON)
 
 */
-let dadospet = require('./dadospets.json')
 
-let pets = dadospet.pets
+/*
+let dadospet = require('./dadospets.json');
 
-
+let pets = dadospet.pets;
 
 const atenderCliente = (pet, servico) => {
-    console.log(`Olá, ${pet.nome}`);
+  console.log(`Olá, ${pet.nome}`);
 
-    (servico)? servico() : console.log('so vim dar uma olhadinha'); // if ternario para avançar se n tiver 2 parametro
-    //servico(); jeito sem if
-    console.log('Tchau, até mais!');
-}
+  servico ? servico() : console.log('so vim dar uma olhadinha'); // if ternario para avançar se n tiver 2 parametro
+  //servico(); jeito sem if
+  console.log('Tchau, até mais!');
+};
 
 const darBanhoPet = () => {
-    console.log('dando banho no pet...');
-}
+  console.log('dando banho no pet...');
+};
 
 const apararUnhas = () => {
-    console.log('Aparando Unhas....');
-}
+  console.log('Aparando Unhas....');
+};
 
 atenderCliente(pets[0], darBanhoPet);
-console.log('--------------------------')
+console.log('--------------------------');
 atenderCliente(pets[2], apararUnhas);
-console.log('--------------------------')
+console.log('--------------------------');
 atenderCliente(pets[1]);
 
+*/
 
+//desestruturação
+
+let pessoa = {
+  nome: 'gabriel',
+  idade: 25,
+  profissao: 'dev',
+  contato: '11921921',
+  habilidades: ['node.js', 'mysql', 'java'],
+};
+
+let { nome, contato } = pessoa;
+
+console.log(`${nome} - ${contato}`);
