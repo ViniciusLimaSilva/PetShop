@@ -54,6 +54,8 @@ const listarPets = () => {
 
 const listarPets = () => {
   dadospet.pets.forEach((pet) => {
+    //desestruturação
+
     let { nome, idade, tipo, raca } = pet;
 
     console.log(`${nome}, ${idade} anos, ${tipo}, ${raca}`);
@@ -70,16 +72,18 @@ const listarPets = () => {
 
 //                     DESAFIO 1
 const VerificaVacinaPet = (animal) => {
-  for (let pet of dadospet.pets) {
-    if (animal == pet.nome) {
-      if (pet.vacinado == false) {
-        pet.vacinado = true;
-        console.log(`Pet ${pet.nome} não era vacinado e agora esta vacinado`);
+  dadospet.pets.forEach((pet) => {
+    let { nome, vacinado } = pet;
+
+    if (animal == nome) {
+      if (vacinado == false) {
+        vacinado = true;
+        console.log(`Pet ${nome} não era vacinado e agora esta vacinado`);
       } else {
-        console.log(`Pet ${pet.nome} ja era vacinado`);
+        console.log(`Pet ${nome} ja era vacinado`);
       }
     }
-  }
+  });
 };
 //VerificaVacinaPet('bolota');
 
@@ -231,7 +235,7 @@ const filtrarTutor = (nomeTutor) => {
   });
 };
 
-listarPets();
+VerificaVacinaPet('bolota');
 
 //clientePremium(dadospet.pets[1]);
 //clientePremium(dadospet.pets[1]);
