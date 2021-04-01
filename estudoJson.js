@@ -47,7 +47,7 @@ console.log('--------------------------');
 atenderCliente(pets[1]);
 
 */
-
+/*
 //desestruturação
 
 let pessoa = {
@@ -61,3 +61,12 @@ let pessoa = {
 let { nome, contato } = pessoa;
 
 console.log(`${nome} - ${contato}`);
+*/
+let turma1 = ['anna', 'joao', 'vinicius', 'igor'];
+let turma2 = ['jainaina', 'gustavo', 'adriana', 'issac'];
+
+let turmasAV = [...turma1, ...turma2]; // torna tudo em apenas 1 lista
+//let turmasAV1 = [turma1, turma2]; // retorna as 2 listas, separadas
+
+turma1.push(...turma2); // mesma coisa, torna tudo em apenas uma lista
+console.log(turma1);

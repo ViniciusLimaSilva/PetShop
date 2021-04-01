@@ -107,9 +107,20 @@ const campanhaVacina = () => {
 };
 //campanhaVacina();
 
-//               DESAFIO 3
+// metodo de add mais dinamico e melhor
+const adicionarPets = (...novospets) => {
+  novospets.forEach((novopet) => {
+    dadospet.pets.push(novopet);
+  });
 
-const cadastrocliente = (
+  attbancopets();
+  novospets.forEach((pet) => {
+    console.log(`${pet.nome} foi adicionado com sucesso!`);
+  });
+};
+
+/* METODO MENOS EFICIENTE
+const adicionarPet = (
   nome,
   tipo,
   idade,
@@ -139,7 +150,7 @@ const cadastrocliente = (
   console.log('pet adicionado');
 };
 
-//cadastrocliente('pingu', 'cachorro', 5, 'viralata', 10, 'rafael', '(81) 98871-9823', true, [])
+*/
 
 //                DESAFIO 4
 
@@ -235,7 +246,7 @@ const filtrarTutor = (nomeTutor) => {
   });
 };
 
-VerificaVacinaPet('bolota');
+//listarPets();
 
 //clientePremium(dadospet.pets[1]);
 //clientePremium(dadospet.pets[1]);
@@ -247,3 +258,40 @@ VerificaVacinaPet('bolota');
 //ApararUnhasPet(pets[1]);
 //console.log('---------------------')
 //listarPets();
+/*
+adicionarPets(
+  {
+    nome: 'gadão',
+    tipo: 'boi',
+    idade: 3,
+    raca: 'American',
+    peso: 90,
+    tutor: 'Doug',
+    contato: '(11) 999399-9999',
+    vacinado: true,
+    servicos: [],
+  },
+  {
+    nome: 'gadinho',
+    tipo: 'cabra',
+    idade: 10,
+    raca: 'American',
+    peso: 43,
+    tutor: 'Doug',
+    contato: '(11) 992999-9999',
+    vacinado: true,
+    servicos: [],
+  },
+  {
+    nome: 'gado',
+    tipo: 'boi',
+    idade: 8,
+    raca: 'american',
+    peso: 70,
+    tutor: 'marcos',
+    contato: '(11) 9999129-9999',
+    vacinado: false,
+    servicos: [],
+  }
+);
+*/

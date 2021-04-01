@@ -58,6 +58,39 @@
       "contato": "(81) 98871-9823",
       "vacinado": true,
       "servicos": [{ "nome": "tosa", "data": "30-03-2021" }]
+    },
+    {
+      "nome": "gadão",
+      "tipo": "boi",
+      "idade": 3,
+      "raca": "American",
+      "peso": 90,
+      "tutor": "Doug",
+      "contato": "(11) 999399-9999",
+      "vacinado": true,
+      "servicos": []
+    },
+    {
+      "nome": "gadinho",
+      "tipo": "cabra",
+      "idade": 10,
+      "raca": "American",
+      "peso": 43,
+      "tutor": "Doug",
+      "contato": "(11) 992999-9999",
+      "vacinado": true,
+      "servicos": []
+    },
+    {
+      "nome": "gado",
+      "tipo": "boi",
+      "idade": 8,
+      "raca": "american",
+      "peso": 70,
+      "tutor": "marcos",
+      "contato": "(11) 9999129-9999",
+      "vacinado": false,
+      "servicos": []
     }
   ]
 }
